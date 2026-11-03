@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pastelería NR · Calamonte (Badajoz)</title>
+  <meta name="description" content="Pastelería NR en Calamonte: dulces 100% caseros, con obrador propio. Pastelitos de chocolate, berlinas, rosquillas, bollos de crema y encargos para tus celebraciones.">
+  <meta name="theme-color" content="#3a1f14">
+  <meta property="og:title" content="Pastelería NR · Calamonte">
+  <meta property="og:description" content="Dulces 100% caseros, con obrador propio. Haz tu encargo en Calamonte (Badajoz).">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://infinibot.github.io/pasteleria-nr/v2/">
+  <meta property="og:image" content="https://infinibot.github.io/pasteleria-nr/v2/images/pastelitos-chocolate.jpg">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8D%B0%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Bakery",
+    "name": "Pastelería NR",
+    "description": "Pastelería artesanal con obrador propio. Productos 100% caseros.",
+    "telephone": "+34696744140",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Calle Ramón y Cajal, 26",
+      "addressLocality": "Calamonte",
+      "addressRegion": "Badajoz",
+      "addressCountry": "ES"
+    },
+    "image": "https://infinibot.github.io/pasteleria-nr/v2/images/fachada.jpg"
+  }
+  </script>
+</head>
+<body>
+
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+
+  <header class="header" id="header">
+    <div class="wrap header__in">
+      <a href="#inicio" class="brand" aria-label="Pastelería NR, inicio">
+        <span class="brand__mark">N.R.</span>
+        <span class="brand__name">Pastelería</span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Principal">
+        <a href="#productos">Productos</a>
+        <a href="#obrador">Nuestro obrador</a>
+        <a href="#encargos">Encargos</a>
+        <a href="#visitanos">Visítanos</a>
+        <a href="tel:+34696744140" class="btn btn--small nav__cta">Llamar</a>
+      </nav>
+
+      <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="contenido">
+
+    <!-- PORTADA: el chocolate se derrite al hacer scroll -->
+    <section class="melt" id="inicio">
+      <div class="melt__stage">
+        <div class="melt__scene" id="scene">
+          <div class="melt__copy">
+            <p class="eyebrow">Calamonte · Badajoz</p>
+            <h1>Dulces <em>caseros</em>, hechos cada día para ti.</h1>
+            <p class="lead">En Pastelería NR elaboramos todo en nuestro propio obrador. Sabor de siempre, calidad y buen precio.</p>
+          </div>
+          <figure class="melt__piece">
+            <span class="melt__disc" aria-hidden="true"></span>
+            <img class="melt__main" src="images/pastelito.webp" alt="Pastelito de chocolate con virutas y capas de bizcocho y crema" width="1167" height="1024" fetchpriority="high">
+            <span class="melt__badge"><strong>100%</strong> casero</span>
+            <img class="melt__chip melt__chip--a" src="images/berlinas.jpg" alt="Berlinas recién hechas" width="1400" height="788">
+            <img class="melt__chip melt__chip--b" src="images/ositos-chocolate.jpg" alt="Ositos de chocolate" width="1400" height="1050">
+          </figure>
+        </div>
+
+        <canvas class="melt__choco" id="choco" aria-hidden="true"></canvas>
+
+        <div class="melt__end" id="end">
+          <p class="eyebrow">Pastelería NR</p>
+          <h2>Se deshacen<br><em>en la boca.</em></h2>
+          <p>Dulces 100% caseros, con obrador propio, en Calamonte.</p>
+          <a href="#productos" class="btn btn--light">Ver productos</a>
+        </div>
+
+        <p class="melt__hint" id="hint"><span>Baja para probarlo</span><i aria-hidden="true"></i></p>
+      </div>
+
+      <svg class="defs" width="0" height="0" aria-hidden="true" focusable="false">
+        <filter id="melt-filter" x="-20%" y="-20%" width="140%" height="170%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.014 0.003" numOctaves="2" seed="7" result="noise"/>
+          <feColorMatrix in="noise" type="matrix" values="0 0 0 0 0.5  1 0 0 0 0  0 0 0 0 0  0 0 0 0 1" result="vertical"/>
+          <feDisplacementMap id="melt-map" in="SourceGraphic" in2="vertical" scale="0" xChannelSelector="R" yChannelSelector="G"/>
+        </filter>
+      </svg>
+    </section>
+
+    <!-- PRODUCTOS -->
+    <section class="section section--fringe" id="productos">
+      <svg class="fringe" viewBox="0 0 1440 170" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path id="fringe-path" d=""/></svg>
+      <div class="wrap">
+        <header class="section__head reveal">
+          <p class="eyebrow">Lo que hacemos</p>
+          <h2>Nuestros productos</h2>
+          <p class="section__sub">Un poco de lo que sale de nuestro obrador. Pregúntanos por lo que hay hoy.</p>
+        </header>
+
+        <div class="grid">
+          <article class="card card--tall reveal">
+            <img src="images/pastelitos-chocolate.jpg" alt="Pastelitos de chocolate" loading="lazy" width="1179" height="847">
+            <div class="card__txt">
+              <h3>Pastelitos de chocolate</h3>
+              <p>Base de galleta, cobertura de chocolate y virutas.</p>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <img src="images/berlinas.jpg" alt="Bandejas de berlinas y rosquillas doradas" loading="lazy" width="1400" height="788">
+            <div class="card__txt">
+              <h3>Berlinas y rosquillas</h3>
+              <p>Fritas en el día, doradas y esponjosas.</p>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <img src="images/ositos-chocolate.jpg" alt="Galletas con forma de osito bañadas en chocolate" loading="lazy" width="1400" height="1050">
+            <div class="card__txt">
+              <h3>Ositos de chocolate</h3>
+              <p>Galletas bañadas en chocolate con leche.</p>
+            </div>
+          </article>
+
+          <article class="card card--wide reveal">
+            <img src="images/pasteles-crema.jpg" alt="Bollos rellenos de crema pastelera y azucarados" loading="lazy" width="738" height="554">
+            <div class="card__txt">
+              <h3>Bollos de crema</h3>
+              <p>Rellenos de crema pastelera y espolvoreados con azúcar.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- OBRADOR -->
+    <section class="section section--alt" id="obrador">
+      <div class="wrap about">
+        <div class="about__media reveal">
+          <img class="about__img1" src="images/fritura.jpg" alt="Rosquillas friéndose en la sartén" loading="lazy" width="1200" height="900">
+          <img class="about__img2" src="images/masa-rosquillas.jpg" alt="Rosquillas crudas listas para freír" loading="lazy" width="960" height="1280">
+        </div>
+
+        <div class="about__text reveal">
+          <p class="eyebrow">Nuestro obrador</p>
+          <h2>Hecho aquí, a mano y sin atajos.</h2>
+          <p>Cada rosquilla, cada berlina y cada pastel nace en nuestro obrador de Calamonte. Sin intermediarios: tú ves lo que comes y nosotros sabemos de dónde viene.</p>
+
+          <ul class="points">
+            <li><strong>100% casero</strong><span>Todos nuestros productos, elaborados por nosotros.</span></li>
+            <li><strong>Obrador propio</strong><span>Producción diaria para que llegue fresco al mostrador.</span></li>
+            <li><strong>Calidad y buen precio</strong><span>Dulce de verdad, sin que se resienta el bolsillo.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ENCARGOS -->
+    <section class="cta" id="encargos">
+      <div class="wrap cta__in reveal">
+        <h2>¿Tienes una celebración a la vista?</h2>
+        <p>Cumpleaños, comuniones, reuniones de familia… Cuéntanos qué necesitas y lo preparamos. Haz tu encargo con tiempo.</p>
+        <div class="cta__btns">
+          <a href="tel:+34696744140" class="btn btn--light">Llamar al 696 744 140</a>
+          <a href="https://wa.me/34696744140?text=Hola%2C%20quer%C3%ADa%20hacer%20un%20encargo" class="btn btn--outline-light" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- VISÍTANOS -->
+    <section class="section" id="visitanos">
+      <div class="wrap visit">
+        <div class="visit__text reveal">
+          <p class="eyebrow">Visítanos</p>
+          <h2>Te esperamos en Calamonte.</h2>
+
+          <dl class="info">
+            <div>
+              <dt>Dirección</dt>
+              <dd>Calle Ramón y Cajal, 26<br>Calamonte (Badajoz)</dd>
+            </div>
+            <div>
+              <dt>Teléfonos</dt>
+              <dd>
+                <a href="tel:+34696744140">696 744 140</a><br>
+                <a href="tel:+34685549301">685 549 301</a>
+              </dd>
+            </div>
+            <!-- Horario: añadir aquí cuando lo confirme la pastelería
+            <div>
+              <dt>Horario</dt>
+              <dd>…</dd>
+            </div>
+            -->
+          </dl>
+
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Pasteler%C3%ADa+NR+Calle+Ram%C3%B3n+y+Cajal+26+Calamonte+Badajoz" target="_blank" rel="noopener">Cómo llegar</a>
+        </div>
+
+        <div class="visit__media reveal">
+          <img src="images/fachada.jpg" alt="Fachada de Pastelería NR en Calamonte" loading="lazy" width="738" height="736">
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__in">
+      <p class="footer__brand">Pastelería <span>N.R.</span></p>
+      <p>Calle Ramón y Cajal, 26 · Calamonte (Badajoz) · <a href="tel:+34696744140">696 744 140</a></p>
+      <p class="footer__small">© <span id="year">2026</span> Pastelería NR. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
