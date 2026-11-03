@@ -77,7 +77,7 @@ p { margin: 0 0 1em; }
   transition: background .3s, box-shadow .3s, color .3s;
 }
 .header.is-scrolled { background: rgba(251, 245, 236, .88); backdrop-filter: blur(12px); box-shadow: 0 6px 24px -14px rgba(58, 31, 20, .4); }
-.header.on-dark { background: transparent; backdrop-filter: none; box-shadow: none; color: var(--cream); }
+.header.on-dark { background: linear-gradient(to bottom, rgba(46, 23, 13, .92), rgba(46, 23, 13, 0)); backdrop-filter: none; box-shadow: none; color: var(--cream); }
 .header.on-dark .brand__mark { color: #f3a9bc; }
 .header.on-dark .nav a:not(.btn) { color: var(--cream); }
 .header.on-dark .nav__cta { background: var(--cream); color: var(--choco); border-color: var(--cream); }
@@ -305,3 +305,50 @@ p { margin: 0 0 1em; }
 
 .melt__copy, .melt__piece { will-change: transform; }
 .melt__stage { contain: layout paint; }
+
+
+/* ---------- Móvil y táctil: chocolate como dibujo fijo, animado por el propio navegador ---------- */
+.melt__pour { display: none; position: absolute; left: 0; top: 0; width: 100%; height: 160svh; pointer-events: none; transform: translate3d(0, -160svh, 0); will-change: transform; }
+
+@media (max-width: 860px), (pointer: coarse) {
+  .melt__choco { display: none; }
+  .melt__pour { display: block; }
+  .melt__main { filter: none; }
+}
+
+@supports (animation-timeline: scroll()) {
+  @media (max-width: 860px), (pointer: coarse) {
+    @media (prefers-reduced-motion: no-preference) {
+      .sd .melt__pour, .sd .melt__copy, .sd .melt__piece, .sd .melt__end, .sd .melt__hint {
+        animation-timing-function: linear; animation-fill-mode: both;
+        animation-timeline: scroll(root block); animation-range: 0px 200svh;
+      }
+      .sd .melt__pour  { animation-name: m-pour; }
+      .sd .melt__copy  { animation-name: m-copy; }
+      .sd .melt__piece { animation-name: m-piece; }
+      .sd .melt__end   { animation-name: m-end; }
+      .sd .melt__hint  { animation-name: m-hint; animation-range: 0px 20svh; }
+
+      @keyframes m-pour {
+        0%, 10% { transform: translate3d(0, -160svh, 0); animation-timing-function: ease-in-out; }
+        72%, 100% { transform: translate3d(0, calc(30px - 10svh), 0); }
+      }
+      @keyframes m-copy {
+        0%, 5% { transform: translate3d(0, 0, 0); opacity: 1; animation-timing-function: ease-in-out; }
+        66%, 100% { transform: translate3d(0, 7svh, 0); opacity: .15; }
+      }
+      @keyframes m-piece {
+        0%, 5% { transform: translate3d(0, 0, 0) scaleY(1); animation-timing-function: ease-in-out; }
+        66%, 100% { transform: translate3d(0, 13svh, 0) scaleY(1.5); }
+      }
+      @keyframes m-end {
+        0%, 74% { opacity: 0; transform: translate3d(0, 36px, 0); animation-timing-function: ease-in-out; }
+        90%, 100% { opacity: 1; transform: translate3d(0, 0, 0); }
+      }
+      @keyframes m-hint {
+        0%, 10% { opacity: 1; animation-timing-function: ease-in-out; }
+        50%, 100% { opacity: 0; }
+      }
+    }
+  }
+}
