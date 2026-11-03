@@ -1,0 +1,116 @@
+:root {
+  --cream: #fbf5ec;
+  --cream-2: #f4e9da;
+  --choco: #3a1f14;
+  --choco-soft: #6b4a3b;
+  --rose: #c95c7c;
+  --rose-dark: #b24a69;
+  --rose-soft: #f6dde3;
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "DM Sans", system-ui, -apple-system, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+body {
+  margin: 0;
+  padding-bottom: 92px;
+  font-family: var(--font-body);
+  font-size: 1.02rem;
+  line-height: 1.5;
+  color: var(--choco);
+  background: var(--cream);
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+h1, h2, h3 { font-family: var(--font-display); margin: 0; line-height: 1.1; letter-spacing: -.01em; }
+p { margin: 0; }
+
+.top, .intro, .chips, main, .info, .foot { width: min(720px, 100%); margin-inline: auto; padding-inline: max(16px, env(safe-area-inset-left, 0px)) max(16px, env(safe-area-inset-right, 0px)); }
+
+/* Aviso de carta de ejemplo */
+.demo { background: var(--rose-soft); color: var(--choco); font-size: .88rem; text-align: center; padding: 8px 16px; }
+
+.top { padding-block: 16px 0; }
+.brand { text-decoration: none; display: inline-flex; align-items: baseline; gap: 8px; }
+.brand__mark { font-family: var(--font-display); font-style: italic; font-weight: 700; font-size: 1.6rem; color: var(--rose-dark); }
+.brand__name { font-family: var(--font-display); font-size: 1.05rem; letter-spacing: .12em; text-transform: uppercase; }
+
+.intro { padding-block: 28px 20px; }
+.eyebrow { display: inline-block; font-size: .78rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--rose-dark); margin-bottom: 10px; }
+.intro h1 { font-size: clamp(2.6rem, 11vw, 4rem); }
+.intro h1 em { font-style: italic; color: var(--rose-dark); }
+.intro p:last-child { margin-top: 12px; color: var(--choco-soft); font-size: 1.1rem; }
+
+/* Categorías: se quedan arriba al bajar */
+.chips {
+  position: sticky; top: 0; z-index: 10;
+  display: flex; gap: 8px; overflow-x: auto; padding-block: 10px;
+  background: var(--cream);
+  scrollbar-width: none;
+}
+.chips::-webkit-scrollbar { display: none; }
+.chips a {
+  flex: none; padding: 8px 16px; border-radius: 999px; text-decoration: none; font-weight: 500; font-size: .95rem;
+  border: 1.5px solid rgba(58, 31, 20, .18); white-space: nowrap; transition: background .2s, color .2s, border-color .2s;
+}
+.chips a:hover, .chips a:focus-visible { background: var(--choco); color: var(--cream); border-color: var(--choco); }
+
+/* Productos */
+.cat { padding-top: 28px; }
+.cat h2 { font-size: 1.7rem; margin-bottom: 6px; }
+.items { list-style: none; margin: 0; padding: 0; }
+.item {
+  display: grid; grid-template-columns: 72px minmax(0, 1fr) auto; align-items: center; gap: 4px 14px;
+  padding: 14px 0; border-bottom: 1px dashed rgba(58, 31, 20, .2);
+}
+.item:last-child { border-bottom: 0; }
+.thumb { width: 72px; height: 72px; border-radius: 50%; overflow: hidden; background: var(--cream-2); flex: none; }
+.thumb img { width: 100%; height: 100%; object-fit: cover; }
+.thumb--cut { background: var(--rose-soft); display: grid; place-items: center; }
+.thumb--cut img { object-fit: contain; transform: scale(1.18) rotate(-6deg); }
+.thumb--letter { display: grid; place-items: center; background: var(--rose-soft); color: var(--rose-dark); font-family: var(--font-display); font-style: italic; font-weight: 700; font-size: 1.9rem; }
+.item__body { min-width: 0; }
+.item h3 { font-size: 1.12rem; }
+.item__body p { margin-top: 3px; font-size: .92rem; color: var(--choco-soft); }
+.price { font-weight: 700; font-size: 1.05rem; white-space: nowrap; text-align: right; font-variant-numeric: tabular-nums; }
+.from { font-weight: 500; font-size: .8rem; color: var(--choco-soft); margin-right: 2px; }
+
+/* Información */
+.info { display: grid; gap: 14px; padding-block: 36px 8px; }
+.box { background: var(--cream-2); border-radius: 22px; padding: 20px 22px; }
+.box h2 { font-size: 1.3rem; margin-bottom: 8px; }
+.box p + p { margin-top: 8px; }
+.contact { font-weight: 500; }
+.contact a { text-decoration: none; border-bottom: 2px solid var(--rose-soft); }
+.todo { font-size: .88rem; border: 1.5px dashed var(--rose-dark); border-radius: 12px; padding: 8px 12px; color: var(--rose-dark); }
+
+.foot { text-align: center; font-size: .85rem; color: var(--choco-soft); padding-block: 24px 8px; }
+
+/* Barra de llamada, siempre a mano */
+.dock {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 20;
+  display: flex; gap: 10px; justify-content: center;
+  padding: 12px max(16px, env(safe-area-inset-right, 0px)) calc(12px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+  background: linear-gradient(to top, var(--cream) 70%, rgba(251, 245, 236, 0));
+}
+.btn {
+  flex: 1 1 0; max-width: 260px; text-align: center; text-decoration: none; font-weight: 700;
+  padding: 14px 20px; border-radius: 999px; background: var(--choco); color: var(--cream); border: 2px solid var(--choco);
+  transition: transform .2s, background .2s, color .2s;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn--ghost { background: var(--cream); color: var(--choco); }
+.btn--ghost:hover { background: var(--choco); color: var(--cream); }
+:focus-visible { outline: 3px solid var(--rose); outline-offset: 3px; }
+
+@media (min-width: 640px) {
+  .item { grid-template-columns: 84px minmax(0, 1fr) auto; }
+  .thumb { width: 84px; height: 84px; }
+  .info { grid-template-columns: 1fr 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn, .chips a { transition: none; }
+}
